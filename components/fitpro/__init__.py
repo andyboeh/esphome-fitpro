@@ -8,7 +8,7 @@ from esphome.const import (
 )
 
 CODEOWNERS = ["@andyboeh"]
-DEPENDENCIES = ["ble_client", "time"]
+DEPENDENCIES = ["ble_client", "time", "sensor", "text_sensor", "button"]
 
 MULTI_CONF = True
 

@@ -71,6 +71,8 @@ class fitpro : public esphome::ble_client::BLEClientNode, public Component {
   void set_battery_sensor(sensor::Sensor  *battery_sensor) { battery_sensor_ = battery_sensor; }
   void set_status_sensor(text_sensor::TextSensor *status) { status_ = status; }
 
+  void trigger_find_device();
+
  private:
   bool discover_characteristics();
   void write_notify_config_descriptor(bool enable);

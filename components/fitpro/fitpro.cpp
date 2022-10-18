@@ -276,6 +276,11 @@ void fitpro::send_ack(uint8_t cmd_group, uint8_t len_hi, uint8_t len_low, uint8_
     
 }
 
+void fitpro::trigger_find_device() {
+  if(this->node_state == espbt::ClientState::ESTABLISHED && this->next_cmd_ == FITPRO_CMD_NONE)
+    this->next_cmd_ = FITPRO_CMD_FIND_DEVICE;
+}
+
 void fitpro::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t gattc_if, esp_ble_gattc_cb_param_t *param) {
   if(this->parent_->get_gattc_if() != gattc_if) // Event is not for us
     return;
